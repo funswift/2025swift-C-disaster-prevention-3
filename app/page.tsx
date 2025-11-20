@@ -8,8 +8,7 @@ export default function Home() {
   const [cards, setCards] = useState("0");
   let cardClass, cardMessage;
 
-  /* ここをデータベースからの読み込みに変更可能 */
-  /* ただし、ローカルストレージでも、たいてい前回選んだカードが表示されるはず */
+  
   useEffect(() => {
      console.log("localStorage:", localStorage.getItem("FoodStockCard"));
     if(localStorage.hasOwnProperty("FoodStockCard")){

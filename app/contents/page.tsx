@@ -13,7 +13,6 @@ export default () => {
 
     function chooseCard(num :number){
 
-      /* ここをデータベースへの保存に改良可能 */
       try{
         localStorage.setItem("FoodStockCard", String(num));
       } catch(e){
