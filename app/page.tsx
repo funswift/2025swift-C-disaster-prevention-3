@@ -51,7 +51,7 @@ export default function Home() {
       <div className = {cardClass}>
         {cardMessage}
       </div>
-      <Link className="absolute top-130 left-150 bg-slate-400 text-white p-5 rounded-md text-lg" href="/contents">
+      <Link className="absolute top-130 left-150 bg-slate-400 text-white p-5 rounded-md text-lg" href="/pages/choosecard">
       カードを選ぶ
       </Link>
 
