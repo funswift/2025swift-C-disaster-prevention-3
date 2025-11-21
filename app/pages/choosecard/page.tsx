@@ -14,12 +14,12 @@ export default () => {
     function chooseCard(num :number){
 
       try{
-        localStorage.setItem("FoodStockCard", String(num));
+        sessionStorage.setItem("FoodStockCard", String(num));
       } catch(e){
-        console.warn("Error setting localStorage key FoodStockCard:", e);
+        console.warn("Error setting sessionStorage key FoodStockCard:", e);
       }
 
-      router.push("/");
+      router.push("/pages/result");
 
 
     }
