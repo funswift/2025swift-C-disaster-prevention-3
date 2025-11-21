@@ -1,63 +1,19 @@
-"use client"
-
-import Image from "next/image";
-import { useEffect, useState } from "react";
-import Link from "next/link";
+import Link from 'next/link';
+import styles from './styles.module.css';
+import React from "react";
 
 export default function Home() {
-  const [cards, setCards] = useState("0");
-  let cardClass, cardMessage;
-
-  
-  useEffect(() => {
-     console.log("localStorage:", localStorage.getItem("FoodStockCard"));
-    if(localStorage.hasOwnProperty("FoodStockCard")){
-      try{
-        setCards(localStorage.getItem("FoodStockCard") || "");
-      }catch(e){
-        console.warn("Error getting localStorage key FoodStockCard:", e);
-      }
-    }
-  }, []);
-
-  /* 一旦カードのクラスを変える実装にしています */
-  if(Number(cards) == 0){
-    cardClass = 'absolute left-10 w-120 h-150 p-10 bg-white text-center';
-    cardMessage = "防災のためにできることを見つけよう";
-  }
-  if(Number(cards) == 1){
-    cardClass = 'absolute left-10 w-120 h-150 p-10 bg-blue-200 text-center';
-    cardMessage = 'Slide 1';
-  }
-  if(Number(cards) == 2){
-    cardClass = 'absolute left-10 w-120 h-150 p-10 bg-green-200 text-center';
-    cardMessage = 'Slide 2';
-  }
-  if(Number(cards) == 3){
-    cardClass = 'absolute left-10 w-120 h-150 p-10 bg-rose-200 text-center';
-    cardMessage = 'Slide 3';
-  }
-  if(Number(cards) == 4){
-    cardClass = 'absolute left-10 w-120 h-150 p-10 bg-orange-200 text-center';
-    cardMessage = 'Slide 4';
-  }
-  
   return (
-    <>
-    
-
-    <div className='relative h-180 mt-10'>
-
-      <div className = {cardClass}>
-        {cardMessage}
+    //wbr 改行可能ポイント br 強制改行
+<main>
+    <div className="text-center mt-30 mb-150 p-8">
+        {/* buttonの代わりにLinkコンポーネントを使用し、同じクラスを指定 */}
+        <Link href="/pages/choosecard/" 
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 bg-slate-400 text-white text-6xl px-16 py-8 rounded-md text-lg"
+        >
+          はじめる
+        </Link>
       </div>
-      <Link className="absolute top-130 left-150 bg-slate-400 text-white p-5 rounded-md text-lg" href="/pages/choosecard">
-      カードを選ぶ
-      </Link>
-
-    </div>
-    
-    
-    </>
+</main>    
   );
 }
