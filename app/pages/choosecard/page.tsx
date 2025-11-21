@@ -4,9 +4,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 // Import Swiper styles
 import 'swiper/css';
+import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { PopUpComponent } from '../../components/popup';
+import { memo } from 'react';
+
 
 export default () => {
+
+  const [popupFlag, setPopupFlag] = useState<boolean>(true);
+  
 
     const router = useRouter();
     let cardNo = 0;
@@ -25,6 +32,7 @@ export default () => {
     }
   return (
     <>
+    <PopUpComponent viewFlag={popupFlag} setViewFlag={setPopupFlag} />
 
     <div className='relative h-180 mt-10'>{/* この上に要素を配置する */}
       <Swiper
